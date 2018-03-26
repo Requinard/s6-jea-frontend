@@ -1,6 +1,10 @@
-export function kweets(state= {
+export function kweets(state = {
     isFetching: true,
-    kweets: []
+    kweets: [
+        {
+            message: "Hello World"
+        }
+    ]
 }, action) {
     switch (action.type) {
         default:
