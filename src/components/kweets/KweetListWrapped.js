@@ -6,18 +6,20 @@ import {connect} from "react-redux";
 class KweetListWrapped extends React.Component {
     render() {
         return (
-            <KweetList kweets={this.props.kweets}/>
+            <KweetList kweets={this.props.kweets} title="Latest Kweets"/>
         )
     }
 }
 
 KweetListWrapped.propTypes = {
+    title: PropTypes.string,
     kweets: PropTypes.array
 };
 
-function mapStateOfProps(state) {
+function mapStateOfProps(state, ownProps) {
     return {
-        kweets: state.kweets.kweets
+        kweets: state.kweets.kweets,
+        title: ownProps.title
     }
 }
 
