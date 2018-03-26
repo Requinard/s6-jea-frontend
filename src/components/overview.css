@@ -1,0 +1,13 @@
+.content-outer {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.content-inner {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 1080px;
+}

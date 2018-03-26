@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import KweetItem from "./KweetItem";
+import KweetItemWrapped from "./KweetItemWrapped";
 
 const KweetList = (props) => (
     <div>
-        {props.kweets.map(kweet => <KweetItem kweet={kweet}/>)}
+        {props.kweets.map(kweet => <KweetItemWrapped kweetId={kweet.id} key={kweet.id}/>)}
     </div>
 );
 

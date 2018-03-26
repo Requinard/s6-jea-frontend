@@ -1,5 +1,6 @@
 import React from 'react'
 import {AppBar} from "material-ui";
+import './overview.css'
 
 export class Overview extends React.Component {
     render() {
@@ -7,7 +8,11 @@ export class Overview extends React.Component {
             <div>
                 <AppBar title="Kwetter"/>
 
-                {this.props.children}
+                <div className="content-outer">
+                    <div className="content-inner">
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         )
     }

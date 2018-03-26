@@ -2,7 +2,8 @@ export function kweets(state = {
     isFetching: true,
     kweets: [
         {
-            message: "Hello World"
+            message: "Hello World",
+            id: "haha ja"
         }
     ]
 }, action) {
