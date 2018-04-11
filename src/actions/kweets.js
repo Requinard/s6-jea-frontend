@@ -7,6 +7,8 @@ export const TIMELINE_FETCHING = "TIMELINE_FETCHING"
 export const TIMELINE_FETCHED = "TIMELINE_FETCHED"
 export const TIMELINE_FAILED = "TIMELINE_FAILED"
 
+export const KWEET_LIKE_FINISHED = "KWEET_LIKE_FINISHED"
+
 export function createKweet(kweet) {
     return (dispatch) => {
         dispatch({type: KWEET_POSTING, kweet});
@@ -29,5 +31,24 @@ export function getTimeline() {
             .set("Authorization", `Bearer ${localStorage.getItem("token")}`)
             .then(result => dispatch({type: TIMELINE_FETCHED, result: result.body}))
             .catch(err => dispatch({type: TIMELINE_FAILED, err}))
+    }
+}
+
+export function setKweets(kweets) {
+    return (dispatch) => {
+        dispatch({type: TIMELINE_FETCHED, result: kweets})
+    }
+}
+
+export function likeKweet(kweet) {
+    return (dispatch) => {
+        dispatch({type: "KWEET_LIKE_PENDING", kweet})
+
+        request.post(`http://localhost:8080/jea-kwetter-1.0/api/kweets/${kweet.id}`)
+            .set("Authorization", `Bearer ${localStorage.getItem("token")}`)
+            .then(result => {
+                dispatch({type: KWEET_LIKE_FINISHED, data: result.body})
+            })
+            .catch(err => dispatch({type: "KWEET_LIKE_FAILED", err, kweet}))
     }
 }

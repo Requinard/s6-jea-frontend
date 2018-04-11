@@ -34,7 +34,7 @@ export class Profile extends React.Component {
                         </div>
                         < div className="profile-right">
                             < CreateKweet/>
-                            < KweetList kweets={this.props.profile.kweets}/>
+                            <KweetList kweets={this.props.profile.kweets}/>
                         </div>
                     </div>
                     : <p>No profile availabe</p>}
