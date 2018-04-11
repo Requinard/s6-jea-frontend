@@ -1,9 +1,9 @@
 import {
     KWEET_LIKE_FINISHED,
     KWEET_POSTED,
-    TIMELINE_FAILED,
-    TIMELINE_FETCHED,
-    TIMELINE_FETCHING
+    KWEET_LIST_FAILED,
+    KWEET_LIST_FETCHED,
+    KWEET_LIST_FETCHING
 } from '../actions/kweets'
 
 export function kweets(state = {
@@ -15,16 +15,16 @@ export function kweets(state = {
             return Object.assign({}, state, {
                 kweets: [action.result].concat(state.kweets)
             });
-        case TIMELINE_FETCHING:
+        case KWEET_LIST_FETCHING:
             return Object.assign({}, state, {
                 isFetching: true
             });
-        case TIMELINE_FETCHED:
+        case KWEET_LIST_FETCHED:
             return Object.assign({}, state, {
                 isFetching: false,
                 kweets: action.result
             });
-        case TIMELINE_FAILED:
+        case KWEET_LIST_FAILED:
             return Object.assign({}, state, {
                 isFetching: false,
             });

@@ -7,7 +7,6 @@ const KweetItem = (props) => (
     <Paper zDepth={1} rounded style={{
         margin: "10px"
     }}>
-        {console.log(props.kweet)}
         <div style={{padding: '20px'}}>
             <p><b>@{props.kweet.profile.screenname}</b></p>
             <p>{props.kweet.message}</p>
