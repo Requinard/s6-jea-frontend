@@ -8,14 +8,16 @@ const KweetForm = (props) => (
         <form onSubmit={props.handleSubmit}>
             <Field
                 component={TextField}
-                hintText="What's on your mind?"
-                floatingLabelText="Write a new kweet"
+                floatingLabelText="What's on your mind?"
+                hintText="Write a new kweet"
                 type="text"
+                name="message"
                 fullWidth
                 rows={5}
             />
             <RaisedButton
                 label="Submit"
+                type="submit"
                 primary
             />
         </form>

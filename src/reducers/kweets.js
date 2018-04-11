@@ -1,3 +1,5 @@
+import {KWEET_POSTED} from '../actions/kweets'
+
 export function kweets(state = {
     isFetching: true,
     kweets: [
@@ -16,6 +18,10 @@ export function kweets(state = {
     ]
 }, action) {
     switch (action.type) {
+        case KWEET_POSTED:
+            return Object.assign({}, state, {
+                kweets: [action.result].concat(state.kweets)
+            })
         default:
             return state;
     }
