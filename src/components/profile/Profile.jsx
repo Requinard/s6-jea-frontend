@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import FontAwesome from 'react-fontawesome'
 import './profile.css'
 import {FlatButton, Paper} from "material-ui";
 import KweetList from "../kweets/KweetList";
@@ -14,9 +15,11 @@ export class Profile extends React.Component {
                         <pre>{this.props.profile.bio}</pre>
                         <FlatButton
                             label={this.props.profile.website}
-                            onClick={() => document.locations = this.props.profile.website}
+                            onClick={() => document.location.href = this.props.profile.website}
                             fullWidth
                         />
+                        <p><FontAwesome name="rocket"/> {this.props.profile.location}</p>
+
                     </Paper>
                 </div>
                 <div className="profile-right">
