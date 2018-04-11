@@ -12,7 +12,7 @@ export function login(credentials) {
         return request.post("http://localhost:8080/jea-kwetter-1.0/api/auth/")
             .send(credentials)
             .then(result => {
-                dispatch({type: LOGIN_SUCCESFULL, result: result.body})
+                dispatch({type: LOGIN_SUCCESFULL, result: result.text})
             })
             .catch(err => dispatch({type: LOGIN_FAILED, err}))
     }

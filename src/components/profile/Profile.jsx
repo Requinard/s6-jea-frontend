@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import FontAwesome from 'react-fontawesome'
 import './profile.css'
-import {FlatButton, Paper} from "material-ui";
+import {Paper, RaisedButton} from "material-ui";
 import KweetList from "../kweets/KweetList";
 import CreateKweet from "../kweets/CreateKweet";
 
@@ -14,9 +14,10 @@ export class Profile extends React.Component {
                     <Paper>
                         <h1>@{this.props.profile.screenname}</h1>
                         <pre>{this.props.profile.bio}</pre>
-                        <FlatButton
+                        <RaisedButton
                             label={this.props.profile.website}
                             onClick={() => document.location.href = this.props.profile.website}
+                            secondary
                             fullWidth
                         />
                         <p><FontAwesome name="rocket"/> {this.props.profile.location}</p>
@@ -29,7 +30,7 @@ export class Profile extends React.Component {
                     </Paper>
                 </div>
                 <div className="profile-right">
-                    <CreateKweet />
+                    <CreateKweet/>
                     <KweetList kweets={this.props.profile.kweets}/>
                 </div>
             </div>
