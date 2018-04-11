@@ -18,6 +18,12 @@ export function profiles(state = {
                     }
                 ]
             }
+        ],
+        follows: [
+            "hank"
+        ],
+        followers: [
+            "hank"
         ]
     }
 }, action) {

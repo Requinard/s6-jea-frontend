@@ -22,6 +22,11 @@ export class Profile extends React.Component {
                         <p><FontAwesome name="rocket"/> {this.props.profile.location}</p>
 
                     </Paper>
+
+                    <Paper>
+                        <p><b>Follows:</b> {this.props.profile.follows}</p>
+                        <p><b>Followed by: </b> {this.props.profile.followers}</p>
+                    </Paper>
                 </div>
                 <div className="profile-right">
                     <CreateKweet />

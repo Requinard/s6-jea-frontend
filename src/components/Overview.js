@@ -7,8 +7,11 @@ export class Overview extends React.Component {
     render() {
         return (
             <div>
-                <AppBar title="Kwetter"
-                iconElementRight={<NavBarRight />}/>
+                <AppBar
+                    title="Kwetter"
+                    iconElementRight={<NavBarRight/>}
+                    iconElementLeft={<div/>}
+                />
 
                 <div className="content-outer">
                     <div className="content-inner">
