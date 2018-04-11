@@ -3,6 +3,7 @@ import request from 'superagent-es6-promise'
 export const LOGIN_PENDING = "LOGIN_PENDING";
 export const LOGIN_SUCCESFULL = "LOGIN_SUCCESFULL";
 export const LOGIN_FAILED = "LOGIN_FAILED";
+export const LOGOUT = "LOGOUT";
 
 export function login(credentials) {
     return (dispatch) => {
@@ -14,5 +15,13 @@ export function login(credentials) {
                 dispatch({type: LOGIN_SUCCESFULL, result: result.body})
             })
             .catch(err => dispatch({type: LOGIN_FAILED, err}))
+    }
+}
+
+export function logout(){
+    return (dispatch) => {
+        dispatch({type: LOGOUT});
+
+        return Promise.resolve()
     }
 }

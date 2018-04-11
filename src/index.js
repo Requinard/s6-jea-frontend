@@ -13,10 +13,13 @@ import {logger} from "redux-logger";
 import thunk from "redux-thunk";
 import persistState from 'redux-localstorage'
 
+const enhancer = compose(
+    persistState()
+);
+
 const store = createStore(reducers,
-    applyMiddleware(logger),
-    applyMiddleware(thunk),
-    compose(persistState()));
+    enhancer,
+    applyMiddleware(thunk, logger));
 
 
 ReactDOM.render(

@@ -1,4 +1,4 @@
-import {LOGIN_FAILED, LOGIN_PENDING, LOGIN_SUCCESFULL} from "../actions/auth";
+import {LOGIN_FAILED, LOGIN_PENDING, LOGIN_SUCCESFULL, LOGOUT} from "../actions/auth";
 
 export function auth(state = {
     isFetching: false,
@@ -15,6 +15,7 @@ export function auth(state = {
                 token: ""
             });
         case LOGIN_SUCCESFULL:
+            localStorage.setItem("token", action.result);
             return Object.assign({}, state, {
                 isFetching: false,
                 isFailed: false,
@@ -27,6 +28,11 @@ export function auth(state = {
                 isFailed: true,
                 isLoggedIn: false
             });
+        case LOGOUT:
+            return Object.assign({}, state, {
+                isLoggedIn: false,
+                token: ""
+            })
         default:
             return state
     }
