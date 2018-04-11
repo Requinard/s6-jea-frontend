@@ -5,7 +5,6 @@ import CreateKweet from "./CreateKweet";
 
 const KweetList = (props) => (
     <div>
-        <CreateKweet/>
         <h1>{props.title ? props.title : ""}</h1>
         {props.kweets.map(kweet => <KweetItemWrapped kweetId={kweet.id} key={kweet.id}/>)}
     </div>
