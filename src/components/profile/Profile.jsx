@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import './profile.css'
-import {Paper} from "material-ui";
+import {FlatButton, Paper} from "material-ui";
 import KweetList from "../kweets/KweetList";
 
 export class Profile extends React.Component {
@@ -9,14 +10,30 @@ export class Profile extends React.Component {
             <div className="profile-grid">
                 <div className="profile-left">
                     <Paper>
-                        <h1>USERNAME</h1>
+                        <h1>@{this.props.profile.screenname}</h1>
+                        <pre>{this.props.profile.bio}</pre>
+                        <FlatButton
+                            label={this.props.profile.website}
+                            onClick={() => document.locations = this.props.profile.website}
+                            fullWidth
+                        />
                     </Paper>
                 </div>
                 <div className="profile-right">
-                    <KweetList kweets={[]}/>
+                    <KweetList kweets={this.props.profile.kweets}/>
                 </div>
             </div>
         )
     }
+}
+
+Profile.propTypes = {
+    profile: PropTypes.shape({
+        screenname: PropTypes.string,
+        bio: PropTypes.string,
+        website: PropTypes.string,
+        location: PropTypes.string,
+        kweets: PropTypes.array
+    }).isRequired
 }
 

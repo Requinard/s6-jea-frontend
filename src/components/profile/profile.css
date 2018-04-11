@@ -7,13 +7,19 @@
 .profile-left {
     flex-direction: column;
     width: 500px;
+    max-width: 100%;
 }
 
 .profile-left > * {
     padding: 5px;
+    margin-top: 20px;
 }
 
 .profile-right {
     flex-direction: column;
     width: 100%;
+}
+
+.profile-grid >  * {
+    padding: 5px;
 }

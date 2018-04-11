@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux'
-import {kweets} from './kweets'
+import {profiles} from "./profiles";
+import {kweets} from "./kweets";
 
 export default combineReducers({
-    kweets
+    kweets,
+    profiles
 })
