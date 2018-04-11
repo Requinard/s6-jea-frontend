@@ -1,0 +1,19 @@
+.profile-grid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.profile-left {
+    flex-direction: column;
+    width: 500px;
+}
+
+.profile-left > * {
+    padding: 5px;
+}
+
+.profile-right {
+    flex-direction: column;
+    width: 100%;
+}

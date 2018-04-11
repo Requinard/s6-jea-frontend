@@ -2,8 +2,16 @@ export function kweets(state = {
     isFetching: true,
     kweets: [
         {
-            message: "Hello World",
-            id: "haha ja"
+            message: "Automated entry message",
+            profile: {
+                screenname: "john"
+            },
+            created: 1522236468208,
+            likes: [
+                {
+                    screenname: "hank"
+                }
+            ]
         }
     ]
 }, action) {
