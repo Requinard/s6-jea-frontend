@@ -4,6 +4,7 @@ import FontAwesome from 'react-fontawesome'
 import './profile.css'
 import {FlatButton, Paper} from "material-ui";
 import KweetList from "../kweets/KweetList";
+import CreateKweet from "../kweets/CreateKweet";
 
 export class Profile extends React.Component {
     render() {
@@ -23,6 +24,7 @@ export class Profile extends React.Component {
                     </Paper>
                 </div>
                 <div className="profile-right">
+                    <CreateKweet />
                     <KweetList kweets={this.props.profile.kweets}/>
                 </div>
             </div>

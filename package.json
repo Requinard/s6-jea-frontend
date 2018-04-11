@@ -13,6 +13,9 @@
     "react-scripts": "1.1.1",
     "react-time": "^4.3.0",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-form-material-ui": "^4.3.4",
+    "redux-forms": "^1.0.0-3",
     "redux-localstorage": "^0.4.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
