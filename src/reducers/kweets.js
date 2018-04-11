@@ -2,20 +2,7 @@ import {KWEET_POSTED, TIMELINE_FAILED, TIMELINE_FETCHED, TIMELINE_FETCHING} from
 
 export function kweets(state = {
     isFetching: false,
-    kweets: [
-        {
-            message: "Automated entry message",
-            profile: {
-                screenname: "john"
-            },
-            created: 1522236468208,
-            likes: [
-                {
-                    screenname: "hank"
-                }
-            ]
-        }
-    ]
+    kweets: []
 }, action) {
     switch (action.type) {
         case KWEET_POSTED:

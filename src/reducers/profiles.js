@@ -1,33 +1,26 @@
+import {PROFILE_FAILED, PROFILE_FETCHED, PROFILE_FETCHING} from "../actions/profiles";
+
 export function profiles(state = {
     isFetching: false,
-    profile: {
-        screenname: "john",
-        bio: "Chillin' like a villain",
-        location: "Eindhoven",
-        website: "http://benenruurd.com",
-        kweets: [
-            {
-                message: "Automated entry message",
-                profile: {
-                    screenname: "john"
-                },
-                created: 1522236468208,
-                likes: [
-                    {
-                        screenname: "hank"
-                    }
-                ]
-            }
-        ],
-        follows: [
-            "hank"
-        ],
-        followers: [
-            "hank"
-        ]
-    }
+    isFailed: false,
+    profile: null
 }, action) {
     switch (action.type) {
+        case PROFILE_FETCHING:
+            return Object.assign({}, state, {
+                isFetching: true,
+                isFailed: false
+            });
+        case PROFILE_FETCHED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                profile: action.data
+            });
+        case PROFILE_FAILED:
+            return Object.assign({}, state, {
+                isFetching: false,
+                isFailed: true,
+            })
         default:
             return state
     }
