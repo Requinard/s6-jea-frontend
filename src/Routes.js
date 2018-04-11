@@ -1,5 +1,5 @@
 import React from 'react'
-import {IndexRoute, Route} from 'react-router'
+import {IndexRedirect, Route} from 'react-router'
 import {Overview} from "./components/Overview";
 import ProfileWrapped from "./components/profile/ProfileWrapped";
 import {LatestKweets} from "./components/LatestKweets";
@@ -7,8 +7,9 @@ import Login from "./components/login/Login";
 
 export default (
     <Route path="/" components={Overview}>
-        <IndexRoute component={LatestKweets}/>
+        <IndexRedirect to="/login"/>
+        <Route path="/home" component={LatestKweets} />
         <Route path="/profile" component={ProfileWrapped}/>
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={Login}/>
     </Route>
 )
