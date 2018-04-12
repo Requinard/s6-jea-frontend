@@ -7,7 +7,7 @@ import "./kweets.css"
 const KweetItem = (props) => (
     <Paper zDepth={1} rounded className="kweet-outer">
         <div style={{padding: '20px'}}>
-            <p><b>@{props.kweet.profile.screenname}</b></p>
+            <ProfileName profile={props.kweet.profile}/>
             <p>{props.kweet.message}</p>
             <Divider/>
             <div className="kweet-likes">
@@ -18,7 +18,7 @@ const KweetItem = (props) => (
                 />
             </div>
             <div className="kweet-likes">
-                {props.kweet.likes.map(it => <ProfileName screenname={it.screenname} icon={it.icon}/>)}
+                {props.kweet.likes.map(it => <ProfileName profile={it}/>)}
             </div>
         </div>
     </Paper>

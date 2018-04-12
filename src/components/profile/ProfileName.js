@@ -5,10 +5,12 @@ import {hashHistory} from 'react-router';
 import "./profile.css"
 
 export const ProfileName = (props) => (
-    <Chip onClick={() => hashHistory.push(`/profile/${props.screenname}`)}><Avatar src={props.icon}/>{props.screenname}</Chip>
+    <Chip onClick={() => hashHistory.push(`/profile/${props.profile.screenname}`)}><Avatar src={props.profile.icon}/>{props.profile.screenname}</Chip>
 );
 
 ProfileName.propType = {
-    screenname: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired
+    profile: PropTypes.shape({
+        screenname: PropTypes.string.isRequired,
+        icon: PropTypes.string.isRequired
+    })
 };

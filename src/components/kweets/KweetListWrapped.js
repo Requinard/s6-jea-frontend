@@ -9,7 +9,7 @@ class KweetListWrapped extends React.Component {
         return (
             <div>
                 {this.props.isFetching ? <CircularProgress/> :
-                    <KweetList kweets={this.props.kweets} title="Latest Kweets"/>}
+                    <KweetList kweets={this.props.kweets} title={this.props.title}/>}
             </div>
         )
     }
