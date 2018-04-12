@@ -11,3 +11,9 @@
     flex-direction: column;
     width: 1080px;
 }
+
+.fab {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}

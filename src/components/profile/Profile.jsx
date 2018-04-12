@@ -35,6 +35,15 @@ export class Profile extends React.Component {
                                 <p><b>Follows:</b> {this.props.profile.follows}</p>
                                 <p><b>Followed by: </b> {this.props.profile.followers}</p>
                             </Paper>
+
+
+                            <Paper>
+                                <RaisedButton
+                                    label={`Start following ${this.props.profile.screenname}`}
+                                    fullWidth
+                                    primary
+                                />
+                            </Paper>
                         </div>
                         < div className="profile-right">
                             < CreateKweet/>
