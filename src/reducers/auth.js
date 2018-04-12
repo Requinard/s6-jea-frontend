@@ -4,6 +4,7 @@ export function auth(state = {
     isFetching: false,
     isFailed: false,
     token: "",
+    username: "",
     isLoggedIn: false
 }, action) {
     switch (action.type) {
@@ -12,6 +13,7 @@ export function auth(state = {
                 isFetching: true,
                 isFailed: false,
                 isLoggedIn: false,
+                username: action.username,
                 token: ""
             });
         case LOGIN_SUCCESFULL:

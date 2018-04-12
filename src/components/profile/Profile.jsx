@@ -4,7 +4,7 @@ import FontAwesome from 'react-fontawesome'
 import './profile.css'
 import {Avatar, Paper, RaisedButton} from "material-ui";
 import KweetList from "../kweets/KweetList";
-import CreateKweet from "../kweets/CreateKweet";
+import {ProfileName} from "./ProfileName";
 
 export class Profile extends React.Component {
     render() {
@@ -32,22 +32,31 @@ export class Profile extends React.Component {
                             </Paper>
 
                             <Paper>
-                                <p><b>Follows:</b> {this.props.profile.follows}</p>
-                                <p><b>Followed by: </b> {this.props.profile.followers}</p>
+                                <h2>Follows</h2>
+                                <div className="profile-follow">
+                                    {this.props.profile.follows.map(it => <ProfileName profile={it}/>)}
+                                </div>
+                                <h2>Followers</h2>
+                                <div className="profile-follow">
+                                    {this.props.profile.followers.map(it => <ProfileName profile={it}/>)}
+                                </div>
                             </Paper>
 
 
                             <Paper>
-                                <RaisedButton
-                                    label={`Start following ${this.props.profile.screenname}`}
-                                    fullWidth
-                                    primary
-                                />
+                                {this.props.followProfile !== undefined ?
+                                    <RaisedButton
+                                        label={`Start following ${this.props.profile.screenname}`}
+                                        onClick={() => this.props.followProfile(this.props.profile)}
+                                        fullWidth
+                                        primary
+                                    />
+                                    : null}
                             </Paper>
                         </div>
                         < div className="profile-right">
-                            < CreateKweet/>
-                            <KweetList kweets={this.props.profile.kweets}/>
+                            <KweetList kweets={this.props.profile.kweets}
+                                       title={`${this.props.profile.screenname} kweets`}/>
                         </div>
                     </div>
                     : <p>No profile availabe</p>}
@@ -63,6 +72,7 @@ Profile.propTypes = {
         website: PropTypes.string,
         location: PropTypes.string,
         kweets: PropTypes.array
-    }).isRequired
+    }).isRequired,
+    followProfile: PropTypes.func
 }
 

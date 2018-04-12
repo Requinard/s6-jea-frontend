@@ -28,3 +28,8 @@
 .profile-grid >  * {
     padding: 5px;
 }
+
+.profile-follow {
+    display: flex;
+    flex-direction: row;
+}

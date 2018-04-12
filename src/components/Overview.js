@@ -28,7 +28,7 @@ export class Overview extends React.Component {
                 <AppBar
                     title="Kwetter"
                     onTitleClick={() => hashHistory.push("/")}
-                    iconElementRight={<NavBarRight/>}
+                    iconElementRight={<NavBarRight username={this.props.username}/>}
                     iconElementLeft={<div/>}
                 />
 
@@ -58,12 +58,14 @@ export class Overview extends React.Component {
 }
 
 Overview.propTypes = {
-    isLoggedIn: PropTypes.bool
+    isLoggedIn: PropTypes.bool,
+    username: PropTypes.string
 };
 
 function mapStateToProps(state) {
     return {
-        isLoggedIn: state.auth.isLoggedIn
+        isLoggedIn: state.auth.isLoggedIn,
+        username: state.auth.username
     }
 }
 

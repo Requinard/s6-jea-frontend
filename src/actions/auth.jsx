@@ -18,7 +18,7 @@ export function login(credentials) {
     }
 }
 
-export function logout(){
+export function logout() {
     return (dispatch) => {
         dispatch({type: LOGOUT});
 

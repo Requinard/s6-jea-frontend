@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {Divider, IconButton, Paper, RaisedButton} from "material-ui";
+import {Divider, Paper, RaisedButton} from "material-ui";
 import {ProfileName} from "../profile/ProfileName";
 import "./kweets.css"
 
