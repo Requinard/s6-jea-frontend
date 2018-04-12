@@ -6,7 +6,7 @@ import KweetItemWrapped from "./KweetItemWrapped";
 const KweetList = (props) => (
     <div>
         <h1>{props.title ? props.title : ""}</h1>
-        {props.kweets.map(kweet => props.noWrap ? <KweetItemWrapped kweetId={kweet.id}/> : <KweetItem kweet={kweet} likeKweet={() => {}}/>)}
+        {props.kweets.map(kweet => props.noWrap ? <KweetItemWrapped kweetId={kweet.id}/> : <KweetItem kweet={kweet} key={kweet.id} likeKweet={() => {}}/>)}
     </div>
 );
 

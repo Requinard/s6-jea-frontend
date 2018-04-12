@@ -1,0 +1,9 @@
+.kweet-outer {
+    margin: 10px;
+}
+
+.kweet-likes {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}

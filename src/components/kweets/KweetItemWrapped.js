@@ -8,7 +8,11 @@ class KweetItemWrapped extends React.Component {
     render() {
         return (
             <div>
-                <KweetItem kweet={this.props.kweets.find(it => it.id === this.props.kweetId)} likeKweet={this.props.likeKweet}/>
+                <KweetItem
+                    key={this.props.kweetId}
+                    kweet={this.props.kweets.find(it => it.id === this.props.kweetId)}
+                    likeKweet={this.props.likeKweet}
+                />
             </div>
         )
     }
