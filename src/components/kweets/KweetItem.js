@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {Divider, IconButton, Paper} from "material-ui";
-import FavoriteIcon from 'material-ui/svg-icons/action/favorite'
+import {Divider, IconButton, Paper, RaisedButton} from "material-ui";
 import {ProfileName} from "../profile/ProfileName";
 import "./kweets.css"
 
@@ -12,14 +11,14 @@ const KweetItem = (props) => (
             <p>{props.kweet.message}</p>
             <Divider/>
             <div className="kweet-likes">
-                <IconButton
+                <RaisedButton
+                    label={props.likeKweet !== undefined ? "Favorite this tweet!" : "Favorited by"}
+                    onClick={() => props.likeKweet !== undefined ? props.likeKweet(props.kweet) : null}
                     primary
-                    tooltip={this.likeKweet === undefined ? "Favorited by" : "Favorite this tweet!"}
-                    onClick={() => this.likeKweet !== undefined ? props.likeKweet(props.kweet) : null}
-                >
-                    <FavoriteIcon/>
-                </IconButton>
-                {props.kweet.likes.map(it => <ProfileName screenname={it.screenname}/>)}
+                />
+            </div>
+            <div className="kweet-likes">
+                {props.kweet.likes.map(it => <ProfileName screenname={it.screenname} icon={it.icon}/>)}
             </div>
         </div>
     </Paper>

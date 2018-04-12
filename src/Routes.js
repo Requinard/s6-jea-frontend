@@ -13,7 +13,7 @@ export default (
         <Route path="/home" component={LatestKweets}/>
         <Route path="/profile" component={ProfileWrapped}/>
         <Route path="/profile/:screenname" component={PersonProfileWrapped}/>
-        <Route path="/search/" component={SearchKweets}/>
+        <Route path="/search" component={SearchKweets}/>
         <Route path="/search/:query" component={SearchKweets}/>
         <Route path="/login" component={Login}/>
     </Route>

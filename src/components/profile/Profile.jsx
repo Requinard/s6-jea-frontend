@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome'
 import './profile.css'
-import {Paper, RaisedButton} from "material-ui";
+import {Avatar, Paper, RaisedButton} from "material-ui";
 import KweetList from "../kweets/KweetList";
 import CreateKweet from "../kweets/CreateKweet";
 
@@ -15,6 +15,10 @@ export class Profile extends React.Component {
 
                         <div className="profile-left">
                             <Paper>
+                                <Avatar
+                                    src={this.props.profile.icon}
+                                    size={450}
+                                />
                                 <h1>@{this.props.profile.screenname}</h1>
                                 <pre>{this.props.profile.bio}</pre>
                                 <RaisedButton
