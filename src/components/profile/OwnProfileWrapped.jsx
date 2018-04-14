@@ -13,7 +13,7 @@ class OwnProfileWrapped extends React.Component {
     render() {
         return (
             <div>
-                {this.props.isFetching ? <CircularProgress/> : <Profile profile={this.props.profile}/>}
+                {this.props.isFetching ? <CircularProgress/> : <Profile profile={this.props.profile} isOwnProfile={true}/>}
             </div>
         )
     }

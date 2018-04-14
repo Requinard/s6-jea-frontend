@@ -5,6 +5,7 @@ import './profile.css'
 import {Avatar, Paper, RaisedButton} from "material-ui";
 import KweetList from "../kweets/KweetList";
 import {ProfileName} from "./ProfileName";
+import ChangeProfile from "./UpdateProfile";
 
 export class Profile extends React.Component {
     render() {
@@ -53,6 +54,11 @@ export class Profile extends React.Component {
                                     />
                                     : null}
                             </Paper>
+
+                            {this.props.isOwnProfile ?
+                            <Paper>
+                                <ChangeProfile />
+                            </Paper>: <div />}
                         </div>
                         < div className="profile-right">
                             <KweetList kweets={this.props.profile.kweets}
@@ -73,6 +79,7 @@ Profile.propTypes = {
         location: PropTypes.string,
         kweets: PropTypes.array
     }).isRequired,
-    followProfile: PropTypes.func
+    followProfile: PropTypes.func,
+    isOwnProfile: PropTypes.bool
 }
 

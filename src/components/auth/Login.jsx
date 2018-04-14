@@ -24,8 +24,6 @@ class Login extends React.Component {
         return (
             <div>
                 <LoginForm onSubmit={this.submit} isFetching={this.props.isFetching} isFailed={this.props.isFailed}/>
-                <Divider />
-                {this.props.children}
             </div>
         )
     }

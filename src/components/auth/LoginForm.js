@@ -1,6 +1,7 @@
 import React from 'react'
 import {Field, reduxForm} from "redux-form";
 import {TextField} from 'redux-form-material-ui'
+import {hashHistory} from 'react-router'
 import "./login.css"
 import {Paper, RaisedButton} from "material-ui";
 
@@ -28,6 +29,11 @@ const LoginForm = (props) => (
                     type="submit"
                     disabled={props.isFetching}
                     primary
+                />
+                <RaisedButton
+                    label="Register"
+                    onClick={() => hashHistory.push("/register")}
+                    secondary
                 />
             </Paper>
         </form>

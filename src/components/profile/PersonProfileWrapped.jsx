@@ -23,6 +23,7 @@ class PersonProfileWrapped extends React.Component {
                 {this.props.isFetching ? <CircularProgress/> : <Profile
                     profile={this.props.profile}
                     followProfile={this.props.followProfile}
+                    isOwnProfile={false}
                 />}
             </div>
         )

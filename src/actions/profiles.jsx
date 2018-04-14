@@ -28,13 +28,13 @@ export function getOwnProfile() {
     }
 }
 
-export function followProfile(profile){
+export function followProfile(profile) {
     return (dispatch) => {
         let screenname = profile.screenname;
 
         dispatch({type: "PROFILE_FOLLOW_POSTING", profile, screenname});
 
-        if(screenname === undefined){
+        if (screenname === undefined) {
             let err = "No valid screenname found";
             dispatch({type: "PROFILE_FOLLOW_FAILED", err});
             return Promise.reject(err)
@@ -47,5 +47,20 @@ export function followProfile(profile){
                 dispatch({type: PROFILE_FETCHED, data: result.body})
             })
             .catch(err => dispatch({type: "PROFILE_FOLLOW_FAILED", err}))
+    }
+}
+
+export function updateProfile(profile) {
+    return (dispatch) => {
+        dispatch({type: 'PROFILE_UPDATING', profile})
+
+        return request.put("http://localhost:8080/jea-kwetter-1.0/api/profiles/")
+            .set("Authorization", `Bearer ${localStorage.getItem("token")}`)
+            .send(profile)
+            .then(result => {
+                dispatch({type: 'PROFILE_UPDATED', data: result.body})
+                dispatch({type: PROFILE_FETCHED, data: result.body})
+            })
+            .catch(err => dispatch({type: "PROFILE_UPDATE_FAILED", err}))
     }
 }
