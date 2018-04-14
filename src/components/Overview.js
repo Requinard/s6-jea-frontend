@@ -5,7 +5,7 @@ import {hashHistory} from 'react-router'
 import './overview.css'
 import NavBarRight from "./NavBarRight";
 import {connect} from "react-redux";
-import Login from "./login/Login";
+import Login from "./auth/Login";
 import CreateKweet from "./kweets/CreateKweet";
 import {ContentAdd} from "material-ui/svg-icons/index";
 

@@ -4,6 +4,7 @@ import LoginForm from "./LoginForm";
 import {connect} from "react-redux";
 import {login} from "../../actions/auth";
 import {hashHistory} from 'react-router'
+import {Divider} from "material-ui";
 
 class Login extends React.Component {
     constructor(props) {
@@ -21,7 +22,11 @@ class Login extends React.Component {
 
     render() {
         return (
-            <LoginForm onSubmit={this.submit} isFetching={this.props.isFetching} isFailed={this.props.isFailed}/>
+            <div>
+                <LoginForm onSubmit={this.submit} isFetching={this.props.isFetching} isFailed={this.props.isFailed}/>
+                <Divider />
+                {this.props.children}
+            </div>
         )
     }
 }
@@ -30,14 +35,16 @@ Login.propTypes = {
     login: PropTypes.func,
     isFetching: PropTypes.bool,
     isFailed: PropTypes.bool,
-    isLoggedIn: PropTypes.bool
+    isLoggedIn: PropTypes.bool,
+    children: PropTypes.array
 };
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
     return {
         isFetching: state.auth.isFetching,
         isFailed: state.auth.isFailed,
         isLoggedIn: state.auth.isLoggedIn,
+        children: ownProps.children
     }
 }
 
