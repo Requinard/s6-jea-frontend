@@ -4,7 +4,6 @@ import LoginForm from "./LoginForm";
 import {connect} from "react-redux";
 import {login} from "../../actions/auth";
 import {hashHistory} from 'react-router'
-import {Divider} from "material-ui";
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,8 +13,8 @@ class Login extends React.Component {
             .then(() => hashHistory.push("/home"))
     }
 
-    componentDidMount(){
-        if(this.props.isLoggedIn){
+    componentDidMount() {
+        if (this.props.isLoggedIn) {
             hashHistory.push("/home")
         }
     }

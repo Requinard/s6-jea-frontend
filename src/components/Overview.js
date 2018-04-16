@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import Login from "./auth/Login";
 import CreateKweet from "./kweets/CreateKweet";
 import {ContentAdd} from "material-ui/svg-icons/index";
+import {Snackbar} from "react-redux-snackbar";
 
 export class Overview extends React.Component {
     constructor(props) {
@@ -52,6 +53,7 @@ export class Overview extends React.Component {
                 >
                     <CreateKweet/>
                 </Dialog>
+                <Snackbar />
             </div>
         )
     }

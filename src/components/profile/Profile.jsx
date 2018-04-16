@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from 'react-fontawesome'
 import './profile.css'
 import {Avatar, Paper, RaisedButton} from "material-ui";
 import KweetList from "../kweets/KweetList";
@@ -28,7 +27,7 @@ export class Profile extends React.Component {
                                     secondary
                                     fullWidth
                                 />
-                                <p><FontAwesome name="rocket"/> {this.props.profile.location}</p>
+                                <p>{this.props.profile.location}</p>
 
                             </Paper>
 
