@@ -8,22 +8,30 @@ const RegistrationForm = (props) => (
     <div className="login-container">
         <form onSubmit={props.handleSubmit} className="login-form">
             <Paper className="login-inner">
-                {props.failed ? <p>It seems your username is taken! Try another!</p>: <div />}
+                {props.failed ? <p>It seems your username is taken! Try another!</p> : <div/>}
                 <h1>Register for kwetter!</h1>
                 <Field
                     component={TextField}
                     type="text"
                     name="username"
                     floatingLabelText="Username"
-                    hint="Kris Kraslot"
+                    hintText="Kris Kraslot"
+                    required
+                    fullWidth/>
+                <Field
+                    component={TextField}
+                    type="email"
+                    name="email"
+                    floatingLabelText="Email Adress"
+                    hintText="billing@fontys.nl"
                     required
                     fullWidth/>
                 <Field
                     component={TextField}
                     name="password"
-                    type="text"
+                    type="password"
                     floatingLabelText="Password"
-                    hint="Make it really secure!"
+                    hintText="Make it really secure!"
                     required
                     fullWidth
                 />
