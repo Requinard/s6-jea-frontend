@@ -10,6 +10,8 @@ export const KWEET_LIST_FAILED = "KWEET_LIST_FAILED"
 
 export const KWEET_LIKE_FINISHED = "KWEET_LIKE_FINISHED"
 
+export const KWEET_ITEM_ADDED = "KWEET_ITEM_ADDED"
+
 export function createKweet(kweet) {
     return (dispatch) => {
         dispatch({type: KWEET_POSTING, kweet});
@@ -94,5 +96,15 @@ export function searchKweets(query) {
                     timeout: 2000
                 }))
             })
+    }
+}
+
+export function addKweetFromSocket(kweet){
+    return (dispatch) =>{
+        dispatch({type: KWEET_ITEM_ADDED, kweet})
+        dispatch(showSnack("kweet_from_ws", {
+            label: 'Received a kweet from ws',
+            timeout: 2000
+        }))
     }
 }

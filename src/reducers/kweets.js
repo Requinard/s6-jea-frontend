@@ -3,7 +3,7 @@ import {
     KWEET_POSTED,
     KWEET_LIST_FAILED,
     KWEET_LIST_FETCHED,
-    KWEET_LIST_FETCHING
+    KWEET_LIST_FETCHING, KWEET_ITEM_ADDED
 } from '../actions/kweets'
 
 export function kweets(state = {
@@ -12,9 +12,13 @@ export function kweets(state = {
 }, action) {
     switch (action.type) {
         case KWEET_POSTED:
+            return state;
+        case KWEET_ITEM_ADDED:
+            let kweetItems = [action.kweet]
+            state.kweets.forEach(item => kweetItems.push(item))
             return Object.assign({}, state, {
-                kweets: [action.result].concat(state.kweets)
-            });
+                kweets: kweetItems.sort((a, b) => b.created - a.created)
+            })
         case KWEET_LIST_FETCHING:
             return Object.assign({}, state, {
                 isFetching: true

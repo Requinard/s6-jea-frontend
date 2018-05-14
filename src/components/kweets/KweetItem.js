@@ -18,7 +18,7 @@ const KweetItem = (props) => (
                 />
             </div>
             <div className="kweet-likes">
-                {props.kweet.likes.map(it => <ProfileName profile={it}/>)}
+                {props.kweet.likes ? props.kweet.likes.map(it => <ProfileName profile={it}/>) : <div />}
             </div>
         </div>
     </Paper>

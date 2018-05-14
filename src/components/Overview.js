@@ -9,6 +9,7 @@ import Login from "./auth/Login";
 import CreateKweet from "./kweets/CreateKweet";
 import {ContentAdd} from "material-ui/svg-icons/index";
 import {Snackbar} from "react-redux-snackbar";
+import WebsocketConnector from "./WebsocketConnector";
 
 export class Overview extends React.Component {
     constructor(props) {
@@ -35,7 +36,10 @@ export class Overview extends React.Component {
 
                 <div className="content-outer">
                     <div className="content-inner">
-                        {this.props.isLoggedIn ? this.props.children : <Login/>}
+                        {this.props.isLoggedIn ?
+                            <WebsocketConnector>
+                                {this.props.children}
+                            </WebsocketConnector> : <Login/>}
                     </div>
                 </div>
 
@@ -44,7 +48,7 @@ export class Overview extends React.Component {
                     className="fab"
                     secondary
                 >
-                    <ContentAdd />
+                    <ContentAdd/>
                 </FloatingActionButton>
 
                 <Dialog
@@ -53,7 +57,7 @@ export class Overview extends React.Component {
                 >
                     <CreateKweet/>
                 </Dialog>
-                <Snackbar />
+                <Snackbar/>
             </div>
         )
     }
